@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class</title>
+
+</head>
+<body>
+<script>
+
+    function Calculator() {
+
+        this.read = function () {
+            this.a = +prompt('Введіть перше число', '');
+            this.b = +prompt('Введіть друге число', '')
+        }
+
+        this.sum = function () {
+            return this.a + this.b;
+        }
+
+        this.mul = function () {
+            return this.a * this.b;
+        }
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+
+    alert( "Сумма=" + calculator.sum() );
+    alert( "Произведение=" + calculator.mul() );
+
+</script>
+
+</body>
+</html>
