@@ -9,7 +9,7 @@
 <script>
 
     function sumArgs () {
-        var sum = 0;
+        var sum = 0;                           // 1 option
         var args = [].slice.call(arguments);
         for (i = 0; i < args.length; i++) {
             sum += args[i];
@@ -17,7 +17,7 @@
         alert(sum);
     }
 
-//function sumArgs () {
+//function sumArgs () {                                            // 2 option
 //    var args = [].reduce.call(arguments, function (cur, next) {
 //        return cur + next;
 //    });

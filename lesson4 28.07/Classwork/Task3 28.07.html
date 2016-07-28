@@ -8,20 +8,18 @@
 <body>
 <script>
 
-    function Summator() {
+    function joinArgs() {
+//        arguments.join = [].join;                // 1 option
+//        var argJoined = arguments.join('*');
+//        document.write(argJoined + '<br/>');
 
-        this.sum = function (a, b) {
-            return a + b;
-        };
+        var args = [].slice.call(arguments);       // 2 option
+        document.write(args.join('*') + '<br/>');
 
-        this.run = function () {
-            var a = +prompt('Введіть перше число', '');
-            var b = +prompt('Введіть друге число', '');
-            alert('Сума: ' + this.sum(a, b));
-        }
     }
 
-     new Summator().run();
+    joinArgs(1,2,3); // 1*2*3
+    joinArgs('hello', 'world', '!'); // hello*world*!
 
 
 </script>
