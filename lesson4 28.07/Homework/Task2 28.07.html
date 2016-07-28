@@ -8,16 +8,18 @@
 <body>
 <script>
     
-    var arg = 4, obj = {
-                param: 'num',
-                func: 'return Math.sqrt(num)'
-            };
+    function compose(numb, func) {
+        var num = numb;
+        for (i = 1; i < arguments.length; i++) {
+           num = arguments[i](num);
+        }
+        console.log(num);
+    }
 
-    eval('function runString(arg, obj) {' +obj.param + '= arg;' + obj.func + '}');
-
-
-
-    alert(runString(arg, obj)); //2
+    var doubleTheValue = function(val) { return val * 2; };
+    var addOneToTheValue = function(val) { return val + 1; };
+    compose(7, doubleTheValue); // 14
+    compose(7, doubleTheValue, addOneToTheValue);   //15
 
 
 </script>
