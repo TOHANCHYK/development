@@ -8,27 +8,21 @@
 <body>
 <script>
 
-    function Calculator() {
-
-        this.read = function () {
-            this.a = +prompt('Введіть перше число', '');
-            this.b = +prompt('Введіть друге число', '')
-        };
-
-        this.sum = function () {
-            return this.a + this.b;
-        };
-
-        this.mul = function () {
-            return this.a * this.b;
+    function bind(func, context) {
+        return function() {
+            return func.apply(context, arguments);
         };
     }
 
-    var calculator = new Calculator();
-    calculator.read();
+    var user = {
+        firstName: "Вася",
+        sayHi: function() {
+            alert( this.firstName );
+        }
+    };
 
-    alert( "Сумма=" + calculator.sum() );
-    alert( "Произведение=" + calculator.mul() );
+    var f =user.sayHi. bind(user);
+    f();
 
 </script>
 
