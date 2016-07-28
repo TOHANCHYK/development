@@ -8,26 +8,16 @@
 <body>
 <script>
 
-     function sum (a) {
-        var result = a;
-        function f (b){
-            result += b;
-            return f;
+    function sumArgs() {
+        var sum = 0;
+        var arg = [].slice.apply(arguments);
+        for (i = 0; i < arg.length; i++) {
+            sum +=arg[i];
         }
-
-        f.toString = function () {
-            return result;
-        }
-
-        return f;
+        alert(sum);
     }
 
-    alert(sum(1)(2) == 3); // 1 + 2 = 3
-    alert(sum(1)(2)(3) == 6); // 1 + 2 + 3 = 6
-    alert(sum(5)(-1)(2) == 6);
-    alert(sum(6)(-1)(-2)(-3) == 0);
-    alert(sum(0)(1)(2)(3)(4)(5) == 15);
-   
+    sumArgs(1, 2, 3, 4, 5, 6);
 
 </script>
 

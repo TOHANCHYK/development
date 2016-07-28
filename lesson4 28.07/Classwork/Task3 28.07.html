@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class</title>
+
+</head>
+<body>
+<script>
+
+    function Summator() {
+
+        this.sum = function (a, b) {
+            return a + b;
+        };
+
+        this.run = function () {
+            var a = +prompt('Введіть перше число', '');
+            var b = +prompt('Введіть друге число', '');
+            alert('Сума: ' + this.sum(a, b));
+        }
+    }
+
+     new Summator().run();
+
+
+</script>
+
+</body>
+</html>

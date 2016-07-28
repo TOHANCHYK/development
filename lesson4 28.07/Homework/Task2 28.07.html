@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class</title>
+
+</head>
+<body>
+<script>
+    
+    var arg = 4, obj = {
+                param: 'num',
+                func: 'return Math.sqrt(num)'
+            };
+
+    eval('function runString(arg, obj) {' +obj.param + '= arg;' + obj.func + '}');
+
+
+
+    alert(runString(arg, obj)); //2
+
+
+</script>
+
+</body>
+</html>

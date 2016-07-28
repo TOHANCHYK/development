@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class</title>
+
+</head>
+<body>
+<script>
+
+    function sumArgs () {
+        var sum = 0;
+        var args = [].slice.call(arguments);
+        for (i = 0; i < args.length; i++) {
+            sum += args[i];
+        }
+        alert(sum);
+    }
+
+    sumArgs(3, 4, 4);
+
+</script>
+
+</body>
+</html>
