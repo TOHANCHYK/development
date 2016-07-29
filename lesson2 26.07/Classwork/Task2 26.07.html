@@ -5,18 +5,18 @@
 <meta charset="utf-8">
 <title>Class work </title> 
 
- <script> 
+ <script>
 
 	function f() {
 		var count = 0;
-		
+
 		return function () {
 		return ++count;
 		}
 	}
-	
+
 	var g = f();
-	
+
 	console.log(g());
 	console.log(g());
 	console.log(g());

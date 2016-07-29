@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+</head>
+<body>
+<script>
+
+    var counter = 0;
+    function printNumber() {
+
+            console.log(++counter);
+
+    }
+
+    var timer = setInterval(printNumber, 100);
+
+    setTimeout(function() {
+        clearInterval(timer);
+    }, 2000);
+
+    
+</script>
+
+</body>
+</html>

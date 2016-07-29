@@ -8,29 +8,29 @@
  <script> 
 
 	function makeArmy() {
-		var shooters = []; 
+		var shooters = [];
 
 		for (var i = 0; i< 10; i++) {
-		
+
 		    //var shooter = function shoot() {
 			//	alert( shoot.i );
 			//};
 			//shooter.i = i;
-		
+
 			var shooter = (function(x) { //start
 				return function() {
 				alert( x );
 				};
 			})(i); //end
-			
-			shooters.push(shooter); 
-		} 
-		return shooters; 
+
+			shooters.push(shooter);
+		}
+		return shooters;
 	}
-	var army = makeArmy(); 
+	var army = makeArmy();
 	army[0]();
-	army[5](); 
-	
+	army[5]();
+
  </script> 
 
 </head> 
