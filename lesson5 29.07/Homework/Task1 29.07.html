@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+</head>
+<body>
+<script>
+
+//    Напишите программу, которая принимает математическое выражение (используйте prompt) и результат его получает через eval.
+//            При ошибке нужно выводить сообщение и просить изменить некорректный ввод.
+//            Ошибкой считается не только некорректное выражение, такое как 2+, но и выражение, возвращающее NaN, например 0/0.
+
+var result;
+function repeat() {
+    while (isNaN(result)) {
+        var math1 = prompt('Виникла помилка!\nБудь ласка, введіть коректні дані, які не містять літер!', '2+2');
+        result = eval(math1);
+    }
+}
+
+function prog() {
+    var math = prompt('Введіть математичний вираз, будь ласка!', '0/0');
+    result = eval(math);
+    while (isNaN(result)) {
+            math1 = prompt('Виникла помилка!\nБудь ласка, введіть коректні дані!', '2+2');
+            result = eval(math1);
+        }
+    }
+
+    try {
+        prog();
+    }
+    catch (e) {
+            repeat();
+    }
+
+alert(result);
+
+</script>
+
+</body>
+</html>
