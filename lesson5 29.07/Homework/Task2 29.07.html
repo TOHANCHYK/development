@@ -16,7 +16,8 @@
 
     function smartSum () {
         var sum = 0;
-        [].forEach.call(arguments, function(arg) {
+        var each = [].forEach;
+        each.call(arguments, function(arg) {
             if (isNaN(parseInt(arg)) || isNaN(parseFloat(arg))) {
                 sum += 0;
             } else {
@@ -26,7 +27,7 @@
 
 
         return (function sumator () {
-            [].forEach.call(arguments, function(arg) {
+            each.call(arguments, function(arg) {
                 if (isNaN(parseInt(arg)) || isNaN(parseFloat(arg))) {
                     sum += 0;
                 } else {
