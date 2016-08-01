@@ -10,9 +10,6 @@ function find (arr, value) {
 	if (arr.indexOf(value)) { 
 		return arr.indexOf(value);
 	}
-    for (var i = 0; i < arr.length; i++) {
-       if (arr[i] == value) return i;
-   }
         return -1;
 }
 var array = [0, 1, 'f', 90, false, 43, true, 'milk'];
@@ -21,7 +18,7 @@ console.log(array);
 var finding = find(array, true);
 console.log(finding);
 
-var test = find(array, false);
+var test = find(array, 'no');
 console.log(test);
 
 console.log(find(array, 90));
