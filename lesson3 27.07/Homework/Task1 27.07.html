@@ -10,7 +10,7 @@
 
     function sumArgs() {
         var sum = 0;
-        var arg = [].slice.apply(arguments);
+        var arg = [].slice.call(arguments);
         for (i = 0; i < arg.length; i++) {
             sum +=arg[i];
         }
