@@ -8,16 +8,27 @@
 <body>
 <script>
 
-    function sumArgs() {
-        var sum = 0;
-        var arg = [].slice.call(arguments);
-        for (i = 0; i < arg.length; i++) {
-            sum +=arg[i];
+    function sum(a) {
+
+        var sumGen = a;
+
+        function sumEver(b) {
+            sumGen += b;
+            return sumEver;
         }
-        alert(sum);
+
+        sumEver.toString = function() {
+            return sumGen;
+        };
+
+        return  sumEver;
     }
 
-    sumArgs(1, 2, 3, 4, 5, 6); //21
+    alert(sum(1)(2) == 3); // true
+    alert(sum(1)(2)(3) == 6); // true
+    alert(sum(5)(-1)(2) == 6); // true
+    alert(sum(6)(-1)(-2)(-3) == 0); // true
+    alert(sum(0)(1)(2)(3)(4)(5) == 15); // true
 
 </script>
 
