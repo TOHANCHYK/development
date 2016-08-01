@@ -11,30 +11,17 @@
 //    Сделайте таймер обратного отсчета, который выполняет обратный отсчет от зданого числа до нуля.
 //            Когда доходит до нуля - выводит сообщение о том, что отсчет закончен.
 //            Например, var timer=10, каждую секунду на странице меняется числа - 10, 9, 8... и так далее до нуля.
-
-
-
-//        function f() {
-//            var count = 0;
-//
-//            return function () {
-//                return ++count;
-//            }
-//        }
 (function () {
 
-    var timer = 10;
+    var timer = 2;
 
     function count(s) {
         s = timer;
         return function () {
-            if (s == (-1)) {
+            if (s == 0) {
             return;
             }
             document.write(s-- + '<br/>');
-
-
-
         }
     }
 
@@ -45,7 +32,7 @@
     setTimeout(function () {
         clearInterval(inter);
         alert('Рахунок закінчений!');
-    }, ((timer + 2) * 1000));
+    }, ((timer + 1) * 1000));
 })();
 
 
