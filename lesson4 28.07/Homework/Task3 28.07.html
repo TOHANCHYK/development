@@ -8,14 +8,17 @@
 <body>
 <script>
 
-    function work(a) {
-         log.push(a);
-        return a;
+    function work() {
     }
 
     function makeLogging(f, log) {
 
-        return f.apply("", arguments);
+        return function wrap (b) {
+            log.push(b);
+
+            return f.apply("", arguments);
+        }
+
     }
 
 
@@ -25,7 +28,7 @@
     work(1); // 1, добавлено в log
     work(5); // 5, добавлено в log
 
-    for (var i = 1; i < log.length; i++) {
+    for (var i = 0; i < log.length; i++) {
         alert('Лог:' + log[i]); // "Лог:1", затем "Лог:5"
     }
 
