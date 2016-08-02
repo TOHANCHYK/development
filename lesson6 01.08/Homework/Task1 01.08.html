@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+</head>
+<body>
+
+<!--Есть дерево из тегов ul и li.-->
+
+<!--Напишите код, который для каждого элемента li выведет:-->
+
+<!--Текст непосредственно в нём указанный (без подразделов).-->
+<!--Количество всех вложенных в него элементов li.-->
+
+<ul>
+    <li>Животные
+        <ul>
+            <li>Млекопитающие
+                <ul>
+                    <li>Коровы</li>
+                    <li>Ослы</li>
+                    <li>Собаки</li>
+                    <li>Тигры</li>
+                </ul>
+            </li>
+            <li>Другие
+                <ul>
+                    <li>Змеи</li>
+                    <li>Птицы</li>
+                    <li>Ящерицы</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Рыбы
+        <ul>
+            <li>Аквариумные
+                <ul>
+                    <li>Гуппи</li>
+                    <li>Скалярии</li>
+                </ul>
+
+            </li>
+            <li>Морские
+                <ul>
+                    <li>Морская форель</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<div id="div1"></div>
+<script>
+
+        var list = document.getElementsByTagName('li');
+        var div = document.getElementById('div1');
+            div.innerHTML = '<b>Текст li:</b>';
+
+        for (i = 0; i < list.length; i++) {
+            var childNumber = list[i].getElementsByTagName('li').length;
+            var itemName = list[i].firstChild.data;
+            div.innerHTML += '<br/>' + itemName + ': ' + childNumber;
+        }
+
+</script>
+
+</body>
+</html>
