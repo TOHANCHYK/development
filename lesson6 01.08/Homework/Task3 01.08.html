@@ -8,19 +8,21 @@
         //    Метод elem.closest(css) для поиска ближайшего родителя, удовлетворяющего селектору css,
         //            не поддерживается некоторыми браузерами, например IE11-. Создайте для него полифилл.
 
-            if (!Element.prototype.closest) {
-                Element.prototype.closest = function(css) {
-                    var elem = this;
-                    while (elem) {
-                        if (elem.matches(css)) {
-                            return elem;
-                        } else {
-                            elem = elem.parentElement;
-                        }
+        if (!Element.prototype.closest) {
+            Element.prototype.closest = function closest(selector) {
+                var element = this;
+
+                while (element && element.nodeType === 1) {
+                    if (element.matches(selector)) {
+                        return element;
                     }
-                    return null;
-                };
-            }
+
+                    element = element.parentNode;
+                }
+
+                return null;
+            };
+        }
 
     </script>
 </head>
