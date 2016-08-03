@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            text-align: center;
+            position: relative;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 0, 0.33);
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: rgba(173, 255, 47, 0.42);
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background: rgba(221, 160, 221, 0.44);
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="div1">1</div>
+<div id="div2">2</div>
+<div id="div3">3</div>
+
+<script>
+    var div1 = document.getElementById('div1');
+    var div2 = document.getElementById('div2');
+    var div3 = document.getElementById('div3');
+
+    function random(elem) {
+       elem.style.top  = Math.random() * screen.availHeight + elem.height + "px";
+        elem.style.left  = Math.random() * screen.availWidth + "px";
+
+    }
+
+
+    random(div1);
+    random(div2);
+    random(div3);
+
+    //console.log(divTop1);
+
+</script>
+
+</body>
+</html>
