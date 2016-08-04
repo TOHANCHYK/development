@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+    <style>
+        .red {
+            background: rgba(255, 15, 7, 0.75);
+        }
+    </style>
+
+</head>
+<body>
+
+<form action="#">
+    Login:<br>
+    <input id="login" type="text" name="log" value="sv"><br>
+    Password:<br>
+    <input id="pass" type="password" name="password" value="sv"><br>
+    Telephone number:<br>
+    <input id="phone" type="tel" name="number"><br>
+    <br>
+    <input id="btn" type="submit" value="Sign Up">
+</form>
+
+<script>
+
+var logn = document.getElementById('login');
+var pass = document.getElementById('pass');
+var tel = document.getElementById('phone');
+var btn = document.getElementById('btn');
+
+
+    btn.onclick = function () {
+
+        for (i = 0; i < 9; i++) {
+            var sbstr = [i].toString();
+            if (logn.value.indexOf(sbstr) != (-1)) {
+                logn.className = 'red';
+                return false;
+            } else if (logn.value.length == 0) {
+                logn.className = 'red';
+                alert('Enter your login, please!');
+                return false;
+            }
+        }
+
+            if (pass.value.indexOf('$') != (-1) || pass.value.length == 0) {
+                pass.className = 'red';
+                return false;
+            }
+
+        var reg = /^[0-9][0-9]{0,9}$/;
+
+            if (!reg.exec(tel.value)) {
+                tel.className = 'red';
+                return false;
+            } else {
+                return true;
+            }
+
+    }
+
+</script>
+
+</body>
+</html>
