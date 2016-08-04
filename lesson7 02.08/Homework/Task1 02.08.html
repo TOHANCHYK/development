@@ -37,8 +37,8 @@
     var div3 = document.getElementById('div3');
 
     function random(elem) {
-        elem.style.top  = Math.random() * (screen.availHeight - elem.style.height) + "px";
-        elem.style.left  = Math.random() * (screen.availWidth - elem.style.width) + "px";
+        elem.style.top  = Math.random() * (document.documentElement.offsetHeight - elem.offsetHeight) + "px";
+        elem.style.left  = Math.random() * (document.documentElement.offsetWidth - elem.offsetWidth) + "px";
     }
 
     var timer = setInterval(function() {
