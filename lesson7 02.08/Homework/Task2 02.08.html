@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+    <style>
+        div {
+            position: fixed;
+            z-index: 1000;
+            border: 1px solid black;
+            background: orangered;
+            width: 40px;
+            height: 40px;
+        }
+        a {
+            position: relative;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+<a href="#">JS</a>
+
+<script type="text/javascript">
+    (document.onload = function () {
+        var a = document.getElementsByTagName('a')[0];
+        var div = document.createElement('div');
+        function positionAt(anchor, position, elem) {
+
+            var coords = anchor.getBoundingClientRect();
+
+            if (position == 'top') {
+                elem.style.left = coords.left + "px";
+                elem.style.top = coords.top - 40 + "px";
+            } else if (position == 'bottom') {
+                elem.style.left = coords.left + "px";
+                elem.style.top = coords.top + anchor.offsetHeight + "px";
+            } else if (position == 'right') {
+                elem.style.left = coords.left + anchor.offsetWidth + "px";
+                elem.style.top = coords.top + "px";
+            } else {
+                alert('Некоректні дані!');
+            }
+            a.appendChild(div);
+        }
+
+//        positionAt(a, 'bottom', div);
+        positionAt(a, 'top', div);
+        //positionAt(a, 'right', div);
+    })();
+    </script>
+
+</body>
+</html>
