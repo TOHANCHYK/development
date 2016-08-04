@@ -15,9 +15,9 @@
 
 <form action="#">
     Login:<br>
-    <input id="login" type="text" name="log" value="sv"><br>
+    <input id="login" type="text" name="log"><br>
     Password:<br>
-    <input id="pass" type="password" name="password" value="sv"><br>
+    <input id="pass" type="password" name="password" ><br>
     Telephone number:<br>
     <input id="phone" type="tel" name="number"><br>
     <br>
@@ -30,7 +30,6 @@ var logn = document.getElementById('login');
 var pass = document.getElementById('pass');
 var tel = document.getElementById('phone');
 var btn = document.getElementById('btn');
-
 
     btn.onclick = function () {
 
@@ -56,10 +55,7 @@ var btn = document.getElementById('btn');
             if (!reg.exec(tel.value)) {
                 tel.className = 'red';
                 return false;
-            } else {
-                return true;
             }
-
     }
 
 </script>
