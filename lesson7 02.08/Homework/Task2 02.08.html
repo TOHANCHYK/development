@@ -6,7 +6,7 @@
     <style>
         div {
             position: fixed;
-            z-index: 1000;
+            z-index: 1;
             border: 1px solid black;
             background: orangered;
             width: 40px;
@@ -15,7 +15,7 @@
         a {
             position: relative;
             left: 100px;
-            top: 100px;
+            top: 60px;
         }
     </style>
 
@@ -34,7 +34,7 @@
 
             if (position == 'top') {
                 elem.style.left = coords.left + "px";
-                elem.style.top = coords.top - 40 + "px";
+                elem.style.top = coords.top - elem.height + 40 + "px";
             } else if (position == 'bottom') {
                 elem.style.left = coords.left + "px";
                 elem.style.top = coords.top + anchor.offsetHeight + "px";
@@ -47,9 +47,9 @@
             a.appendChild(div);
         }
 
-//        positionAt(a, 'bottom', div);
-        positionAt(a, 'top', div);
-        //positionAt(a, 'right', div);
+        positionAt(a, 'bottom', div);
+//        positionAt(a, 'top', div);
+//        positionAt(a, 'right', div);
     })();
     </script>
 
