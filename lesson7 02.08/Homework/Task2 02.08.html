@@ -13,9 +13,9 @@
             height: 40px;
         }
         a {
-            position: relative;
-            left: 100px;
-            top: 60px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
         }
     </style>
 
@@ -28,13 +28,16 @@
     (document.onload = function () {
         var a = document.getElementsByTagName('a')[0];
         var div = document.createElement('div');
+        a.appendChild(div);
         function positionAt(anchor, position, elem) {
 
             var coords = anchor.getBoundingClientRect();
 
             if (position == 'top') {
                 elem.style.left = coords.left + "px";
-                elem.style.top = coords.top - elem.height + "px";
+                elem.style.top = coords.top - elem.offsetHeight + "px";
+                console.dir(elem);
+                console.dir(elem.offsetHeight);
             } else if (position == 'bottom') {
                 elem.style.left = coords.left + "px";
                 elem.style.top = coords.top + anchor.offsetHeight + "px";
@@ -44,11 +47,12 @@
             } else {
                 alert('Некоректні дані!');
             }
-            a.appendChild(div);
+
+
         }
 
-        positionAt(a, 'bottom', div);
-//        positionAt(a, 'top', div);
+ //       positionAt(a, 'bottom', div);
+      positionAt(a, 'top', div);
 //        positionAt(a, 'right', div);
     })();
     </script>
