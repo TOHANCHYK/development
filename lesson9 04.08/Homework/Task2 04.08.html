@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+    <style>
+        li {
+            width: 100px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div></div>
+
+<script>
+    window.addEventListener("load", function () {
+
+        var wrapper = document.getElementById("wrapper");
+        var lis = document.getElementsByTagName('li');
+
+        wrapper.addEventListener("click", function (e) {
+            for (i = 0; i < lis.length; i++ ){
+                if (lis[i].style.background = 'green') {
+                    lis[i].style.background = wrapper.style.background;
+                }
+            }
+            e.target.style.background ='green';
+        }, false);
+    }, false);
+
+
+</script>
+
+</body>
+</html>
