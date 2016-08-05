@@ -7,7 +7,9 @@
     <style>
         li {
             width: 100px;
+
         }
+
     </style>
 
 </head>
@@ -29,14 +31,19 @@ My skills:
         var wrapper = document.getElementById("wrapper");
         var lis = document.getElementsByTagName('li');
 
-        wrapper.addEventListener("click", function (e) {
-            for (i = 0; i < lis.length; i++ ){
-               if (lis[i].style.background = 'green') {
-                   lis[i].style.background = wrapper.style.background;
-               }
-            }
-            e.target.style.background ='green';
-        }, false);
+        for (j = 0; j < lis.length; j++) {
+            lis[j].addEventListener("click", function (e) {
+
+                for (i = 0; i < lis.length; i++) {
+                 if (lis[i].style.background = 'green') {
+                        lis[i].style.background = wrapper.style.background;
+                    }
+                }
+
+                e.target.style.background = 'green';
+
+            }, false);
+        }
     }, false);
 
 </script>
