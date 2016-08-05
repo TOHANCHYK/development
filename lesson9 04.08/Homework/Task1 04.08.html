@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+    <style>
+        li {
+            width: 100px;
+        }
+    </style>
+
+</head>
+<body>
+My skills:
+<ul id="wrapper">
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>JAVASCRIPT</li>
+    <li>GIT</li>
+    <li>JQUERY</li>
+    <li>OOP</li>
+    <li>AJAX</li>
+</ul>
+
+<script>
+    window.addEventListener("load", function () {
+
+        var wrapper = document.getElementById("wrapper");
+        var lis = document.getElementsByTagName('li');
+
+        wrapper.addEventListener("click", function (e) {
+            for (i = 0; i < lis.length; i++ ){
+               if (lis[i].style.background = 'green') {
+                   lis[i].style.background = 'white';
+               }
+            }
+            e.target.style.background ='green';
+        }, false);
+    }, false);
+
+</script>
+
+</body>
+</html>
