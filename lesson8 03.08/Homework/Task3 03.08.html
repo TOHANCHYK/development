@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+    <style>
+        #result {
+            width: auto;
+            background: aquamarine;
+            height: 20px;
+            display: inline-block;
+        }
+
+    </style>
+
+</head>
+<!--Создайте страницу-калькулятор. Разместите на странице два поля ввода и кнопки для арифметических операций над данными введенными в поля ввода.-->
+<!--Реализуйте данную страницу двумя способами – с использованием модели DOM Level 0 (через атрибуты) и DOM Level 2.-->
+<body>
+<div>Введіть перше число:</div>
+<input id="one" type="number" name="first">
+<br>
+<div>Введіть друге число:</div>
+<input id="two" type="number" name="second">
+<br>
+<div>Оберіть математичну операцію:</div>
+<button id="plus">+</button>
+<button id="minus">-</button>
+<button id="multiply">*</button>
+<button id="divide">/</button>
+
+
+<div>Ваш результат!</div>
+<div id="result"></div>
+
+
+    <script>
+    var num1 = document.getElementById('one');
+    var num2 = document.getElementById('two');
+    var plus = document.getElementById('plus');
+    var minus = document.getElementById('minus');
+    var multiply = document.getElementById('multiply');
+    var divide = document.getElementById('divide');
+    var result = document.getElementById('result');
+
+
+//        plus.onclick = function () {                        // DOM level 0
+//            result.textContent = +num1.value + +num2.value;
+//        }
+//        minus.onclick = function () {
+//            result.textContent = num1.value - num2.value;
+//        }
+//        multiply.onclick = function () {
+//            result.textContent = num1.value * num2.value;
+//        }
+//        divide.onclick = function () {
+//            result.textContent = num1.value / num2.value;
+//        }
+
+    plus.addEventListener('click', function () {              // DOM level 2
+            result.textContent = +num1.value + +num2.value;
+        });
+
+    minus.addEventListener('click', function () {
+            result.textContent = num1.value - num2.value;
+        });
+
+    multiply.addEventListener('click', function () {
+            result.textContent = num1.value * num2.value;
+        });
+
+    divide.addEventListener('click', function () {
+            result.textContent = +num1.value / num2.value;
+        })
+
+    </script>
+</body>
+</html>
