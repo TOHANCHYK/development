@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+    <style>
+
+    .tooltip {
+        background: gray;
+        position: fixed;
+        z-index: 1;
+        border-radius: 3%;
+        padding: 3px;
+        border: 1px solid rgba(14, 14, 14, 0.74);
+        height: 40px;  /*auto - as option*/
+    }
+
+        button{
+
+            position: relative;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<!--При наведении мыши на элемент, на нём возникает событие mouseover, при удалении мыши с элемента – событие mouseout. -->
+<!--Зная это, напишите JS-код, который будет делать так, что при наведении на элемент, если у него есть атрибут data-tooltip –-->
+<!--над ним будет показываться подсказка с содержимым этого атрибута. Например, две кнопки:-->
+    <div>Some text</div>
+    <div>Some text</div>
+    <div>Some text</div>
+    <button id="btn1" data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
+    <button id="btn2" data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+
+<script> 
+
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var dataTool = document.createElement('div');
+    dataTool.className = 'tooltip';
+
+    btn1.onmouseover = function () {
+        document.body.appendChild(dataTool);
+        dataTool.style.top = btn1.getBoundingClientRect().top - dataTool.offsetHeight + 'px';
+        dataTool.innerHTML = btn1.getAttribute('data-tooltip');
+        dataTool.style.left = btn1.getBoundingClientRect().left + 'px';
+    };
+
+    btn2.onmouseover = function () {
+        document.body.appendChild(dataTool);
+        dataTool.style.top = btn2.getBoundingClientRect().top - dataTool.offsetHeight + 'px';
+        dataTool.style.left = btn2.getBoundingClientRect().left + 'px';
+        dataTool.innerHTML = btn2.getAttribute('data-tooltip');
+    };
+
+    console.dir(dataTool.offsetHeight);
+
+    btn1.onmouseout = function (){
+        dataTool.remove();
+    };
+
+    btn2.onmouseout = function (){
+        dataTool.remove();
+    };
+    </script>
+
+</body>
+</html>
