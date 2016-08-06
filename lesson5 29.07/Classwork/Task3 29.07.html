@@ -9,22 +9,22 @@
 <script>
 
 //    function type() {                                   // 1 option
-//        for (i = 0; i < arguments.length; i++) {
+//        for (i = 0; i < 1; i++) {
 //            alert(typeof arguments[i]);
 //        }
 //    }
 //
 //    type('a'); //string
-//    type(1, 'web', [1,2], true); //number, string, object, boolean
+//    type(1, 'web', [1,2], true); //number
 
     function type() {                                    // 2 option
         var toStrig = {}.toString;
-                for (i = 0; i < arguments.length; i++) {
+                for (i = 0; i < 1; i++) {
             alert(toStrig.call(arguments[i]));
         }
     }
     type('a'); //[obkect String]
-    type(1, 'web', [1,2], true); //[object Number], [object String], [object Array], [object Boolean]
+    type(1, 'web', [1,2], true); //[object Number]
 
 </script>
 
