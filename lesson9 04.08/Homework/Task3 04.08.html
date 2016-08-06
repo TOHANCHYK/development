@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+    <style>
+        #result {
+            width: 50px;
+            height: 50px;
+            background: #bedeff;
+            position: absolute;
+        }
+
+    </style>
+
+</head>
+
+<!--Создайте страницу с двумя полями ввода, кнопкой и элементом div с шириной и высотой 50px. -->
+<!--Создайте сценарий, который по нажатию на кнопку будет перемещать div в координаты, указанные в полях ввода. -->
+<!--В случае, если при нажатии кнопки хотя бы одно из полей ввода не заполнено, -->
+<!--пользователь должен получить предупреждение, а событие click должно быть отменено.-->
+
+<body>
+<div>Введіть координату X:</div>
+<input id="coord1" type="number" name="coords">
+<br>
+<div>Введіть  координату Y:</div>
+<input id="coord2" type="number" name="coords">
+<br><br>
+<button id="move">Перемістити <br> елемент!</button> <br><br>
+<div id="result"></div>
+
+    <script>
+    var coorX = document.getElementById('coord1');
+    var coorY  = document.getElementById('coord2');
+    var btn = document.getElementById('move');
+    var result = document.getElementById('result');
+
+    btn.addEventListener('click', moving);
+
+    function moving() {
+        if (!coorX.value || !coorY.value ) {
+            alert('Попередження!!!\nВведіть всі координати!');
+            btn.removeEventListener('click', moving);
+        } else {
+            result.style.top = coorX.value + 'px';
+            result.style.left = coorY.value + 'px';
+        }
+
+    }
+
+
+
+    </script>
+</body>
+</html>
