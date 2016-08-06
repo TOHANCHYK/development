@@ -63,17 +63,11 @@
                         zone.style.top = e.clientY - zone.offsetHeight + 1 + 'px';
                     }
 
-                        if (corSale.bottom < sale.offsetHeight / 2) {
-                            zone.style.top = 665 - zone.offsetHeight + 'px'; // не розумію чому не працює document.documentElement.offsetHeight
-                        } else if (corSale.top > (665 - (sale.offsetHeight / 2))) {  // для перевірки поставив 665 - все працює
+                        if (corSale.bottom < 20) {
+                            zone.style.top = document.documentElement.clientHeight - zone.clientHeight + 'px';
+                        } else if (corSale.top > (document.documentElement.clientHeight - 20)) {
                             zone.style.top = 0 + 'px';
                         }
-
-//                        if (corSale.bottom < sale.offsetHeight / 2) {                                           // вірний, але не працюючий варіант
-//                            zone.style.top = document.documentElement.offsetHeight - zone.offsetHeight + 'px';
-//                        } else if (corSale.top > (document.documentElement.offsetHeight - (sale.offsetHeight / 2))) {
-//                            zone.style.top = 0 + 'px';
-//                        }
                 })();
 
 
@@ -84,9 +78,9 @@
                         zone.style.left = e.clientX - zone.offsetWidth + 1 + 'px';
                     }
 
-                        if (corSale.right < sale.offsetWidth / 2) {
-                            zone.style.left = document.documentElement.offsetWidth - zone.offsetWidth + 'px';
-                        } else if (corSale.left >(document.documentElement.offsetWidth - (sale.offsetWidth / 2))) {
+                        if (corSale.right < 20) {
+                            zone.style.left = document.documentElement.clientWidth - zone.clientWidth + 'px';
+                        } else if (corSale.left >(document.documentElement.clientWidth - 20)) {
                             zone.style.left = 0 + 'px';
                         }
 
