@@ -8,9 +8,12 @@
 <body>
 <script>
 
-    function type(data) {                                   // 1 option
-            alert(typeof arguments[1]);
-
+    function type(data) {                                      // 1 option
+        if (arguments.length = 1){
+            alert(typeof data);
+        } else {
+            alert(arguments[1]);
+        }
     }
 
     type('a'); //string
