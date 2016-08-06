@@ -4,30 +4,98 @@
     <meta charset="UTF-8">
     <title>My work</title>
     <style>
-        li {
-            width: 100px;
+        body{
+            overflow-x:hidden;
+            overflow-y:hidden;
+
         }
+        #zone{
+            top: 300px;
+            left: 50%;
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+        }
+        #sale {
+            width: 100px;
+            background: #ff0f07;
+            position: absolute;
+            height: 100px;
+            border-radius: 100%;
+            top: 25%;
+            left: 25%;
+        }
+        #info {
+            position: absolute;
+            top: 40%;
+            left: 14%;
+            color: yellow;
+            font-family: "Goudy Stout" ;
+
+        }
+
     </style>
 
 </head>
 <body>
-
-<div></div>
-
+<div id="zone">
+<div id="sale">
+    <div id="info">ЗНИЖКА!</div>
+</div>
+</div>
 <script>
     window.addEventListener("load", function () {
+        var zone = document.getElementById('zone');
+        var sale = document.getElementById("sale");
 
-        var wrapper = document.getElementById("wrapper");
-        var lis = document.getElementsByTagName('li');
+        zone.addEventListener('mouseover', function (e) {
+            zone.onmousemove = function (e) {
 
-        wrapper.addEventListener("click", function (e) {
-            for (i = 0; i < lis.length; i++ ){
-                if (lis[i].style.background = 'green') {
-                    lis[i].style.background = wrapper.style.background;
-                }
-            }
-            e.target.style.background ='green';
+                var corSale = sale.getBoundingClientRect();
+
+
+                (function () {
+                    if (e.offsetY < zone.offsetHeight / 2) {
+                        zone.style.top = e.clientY + 1 + 'px';
+                    } else if (e.offsetY > zone.offsetHeight / 2) {
+                        zone.style.top = e.clientY - zone.offsetHeight + 1 + 'px';
+                    }
+                    (function () {
+                        if (corSale.bottom < sale.offsetHeight / 2) {
+                            zone.style.top = 665 - zone.offsetHeight + 'px'; // не розумію чому не працює document.documentElement.offsetHeight
+                        }                                                     // для перевірки поставив 665 - все працює
+                        else if (corSale.top > (665 - (sale.offsetHeight / 2))) {
+                            zone.style.top = 0 + 'px';
+                        }
+                    })();
+                })();
+
+
+                (function () {
+                    if (e.offsetX < zone.offsetWidth / 2) {
+                        zone.style.left = e.clientX + 1 + 'px';
+                    } else if (e.offsetX > zone.offsetWidth / 2) {
+                        zone.style.left = e.clientX - zone.offsetWidth + 1 + 'px';
+                    }
+                    (function () {
+                        if (corSale.right < sale.offsetWidth / 2) {
+                            zone.style.left = document.documentElement.offsetWidth - zone.offsetWidth + 'px';
+                        } else if (corSale.left >(document.documentElement.offsetWidth - (sale.offsetWidth / 2))) {
+                            zone.style.left = 0 + 'px';
+                        }
+                    })();
+                })();
+
+
+
+
+
+            };
         }, false);
+
+
+
     }, false);
 
 
