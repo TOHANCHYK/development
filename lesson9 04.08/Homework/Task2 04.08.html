@@ -61,14 +61,18 @@
                     } else if (e.offsetY > zone.offsetHeight / 2) {
                         zone.style.top = e.clientY - zone.offsetHeight + 1 + 'px';
                     }
-                    (function () {
+
                         if (corSale.bottom < sale.offsetHeight / 2) {
                             zone.style.top = 665 - zone.offsetHeight + 'px'; // не розумію чому не працює document.documentElement.offsetHeight
-                        }                                                     // для перевірки поставив 665 - все працює
-                        else if (corSale.top > (665 - (sale.offsetHeight / 2))) {
+                        } else if (corSale.top > (665 - (sale.offsetHeight / 2))) {  // для перевірки поставив 665 - все працює
                             zone.style.top = 0 + 'px';
                         }
-                    })();
+
+//                        if (corSale.bottom < sale.offsetHeight / 2) {                                           // вірний, але не працюючий варіант
+//                            zone.style.top = document.documentElement.offsetHeight - zone.offsetHeight + 'px';
+//                        } else if (corSale.top > (document.documentElement.offsetHeight - (sale.offsetHeight / 2))) {
+//                            zone.style.top = 0 + 'px';
+//                        }
                 })();
 
 
@@ -78,13 +82,13 @@
                     } else if (e.offsetX > zone.offsetWidth / 2) {
                         zone.style.left = e.clientX - zone.offsetWidth + 1 + 'px';
                     }
-                    (function () {
+
                         if (corSale.right < sale.offsetWidth / 2) {
                             zone.style.left = document.documentElement.offsetWidth - zone.offsetWidth + 'px';
                         } else if (corSale.left >(document.documentElement.offsetWidth - (sale.offsetWidth / 2))) {
                             zone.style.left = 0 + 'px';
                         }
-                    })();
+
                 })();
 
 
