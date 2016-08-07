@@ -8,6 +8,7 @@
         window.onload = function () {
 
             var data = document.getElementById("output");
+            var data1 = document.getElementById("output1");
 
             document.getElementById("get").onclick = function () {
 
@@ -17,13 +18,33 @@
                     var call2 = new XMLHttpRequest();
                     call2.open("GET", "filesme/filetwo.html", true);
 
+                // В дві змінні
+
+//                call2.onreadystatechange = function () {
+//                        if (call2.readyState == 4) {
+//                            if (call2.status == 200) {
+//                                data.innerHTML += call2.responseText + '<br>';
+//                            }
+//                        }
+//                    };
+//
+//                call1.onreadystatechange =  function () {
+//                    if (call1.readyState == 4) {
+//                        if (call1.status == 200) {
+//                            data1.innerHTML += call1.responseText + '<br>';
+//                        }
+//                    }
+//                };
+
+                // В одну змінну:
+
                 call1.onreadystatechange = call2.onreadystatechange = function () {
-                        if (call2.readyState == 4 && call1.readyState == 4) {
-                            if (call2.status == 200 && call1.status == 200) {
-                                data.innerHTML += call1.responseText + '<br>' + call2.responseText + '<br>';
-                            }
+                    if (call2.readyState == 4 && call1.readyState == 4) {
+                        if (call2.status == 200 && call1.status == 200) {
+                            data.innerHTML += call1.responseText + '<br>' + call2.responseText + '<br>';
                         }
-                    };
+                    }
+                };
 
                     call1.send();
                     call2.send();
@@ -34,6 +55,7 @@
 <body>
 <input id="get" type="button" value="Get pages" />
 <div id="output"></div>
+<div id="output1"></div>
 
 </body>
 </html>

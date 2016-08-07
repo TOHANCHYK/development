@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>My  work</title>
+
+    <script>
+        window.onload = function () {
+
+            var data = document.getElementById("output");
+
+            document.getElementById("get").onclick = function () {
+
+                var call1 = new XMLHttpRequest();
+                call1.open("GET", "filesme/fileone.html", true);
+
+                var call2 = new XMLHttpRequest();
+                call2.open("GET", "filesme/filetwo.html", true);
+
+                call1.onreadystatechange = call2.onreadystatechange = function () {
+                    if (call2.readyState == 4 && call1.readyState == 4) {
+                        if (call2.status == 200 && call1.status == 200) {
+                            data.innerHTML += call1.responseText + '<br>' + call2.responseText + '<br>';
+                        }
+                    }
+                };
+
+                call1.send();
+                call2.send();
+            }
+        }
+    </script>
+</head>
+<body>
+<input id="get" type="button" value="Get pages" />
+<div id="output"></div>
+
+</body>
+</html>
