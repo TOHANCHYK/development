@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+    <style>
+        div {
+            background: rgba(75, 0, 130, 0.42);
+        }
+        .some_text{
+            background: rgba(0, 250, 154, 0.74);
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div class="some_text"><p>Some text. Some text. Some text. Some text. Some text. Some text.<p> </div>
+<div class="some_text"><p>Some text. Some text. Some text. Some text. Some text. Some text.<p> </div>
+<div class="some_text"><p>Some text. Some text. Some text. Some text. Some text. Some text.<p> </div>
+<div class="some_text"><p>Some text. Some text. Some text. Some text. Some text. Some text.<p> </div>
+<script>
+    var spam = document.createElement('span');
+    spam.innerHTML = 'РЕКЛАМА!!!';
+    var div = document.getElementsByTagName('div');
+    var p = document.getElementsByTagName('p');
+
+    setTimeout(function () {
+        document.body.insertBefore(spam, div[1]);
+    },400);
+    setTimeout(function () {
+        div[1].insertBefore(spam, div[1].firstChild);
+    }, 800);
+    setTimeout(function () {
+        div[1].appendChild(spam);
+    }, 1200);
+    setTimeout(function () {
+        document.body.insertBefore(spam, div[1].nextSibling);
+    }, 1600);
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
