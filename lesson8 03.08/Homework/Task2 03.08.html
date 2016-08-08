@@ -42,7 +42,7 @@
     dataTool.className = 'tooltip';
 
     function mouseOver (e) {
-        if (e.target.hasAttributes('data-tooltip')) {
+        if (e.target.getAttribute('data-tooltip')) {
             document.body.appendChild(dataTool);
             dataTool.style.top = e.target.getBoundingClientRect().top - dataTool.offsetHeight + 'px';
             dataTool.innerHTML = e.target.getAttribute('data-tooltip');
@@ -61,7 +61,6 @@
     btn2.onmouseout = function (){
         dataTool.remove();
     };
-
     </script>
 
 </body>
