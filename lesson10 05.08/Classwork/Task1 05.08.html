@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>My  work</title>
+
+    <script>
+        window.onload = function () {
+
+            var data = document.getElementById("output");
+
+            document.getElementById("get").onclick = function () {
+
+                var call1 = new XMLHttpRequest();
+                call1.open("POST", "task_phone/img.jpg", true);
+
+                call1.onreadystatechange =  function () {
+                    if (call1.readyState == 4) {
+                        if (call1.status == 200) {
+                            data.innerHTML += call1.responseText + '<br>';
+                        }
+                    }
+                };
+                setTimeout(call1.send(),1000);
+            }
+        }
+    </script>
+</head>
+
+<!--Создайте страницу с кнопкой. Создайте код, -->
+<!--который загрузит на страницу картинку img.jpg (файл находитя в папке classwork) -->
+<!--асинхронно через секунду после загрузки страницы-->
+
+<body>
+<input id="get" type="button" value="Get img" />
+<div id="output"></div>
+
+</body>
+</html>

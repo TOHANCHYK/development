@@ -36,26 +36,23 @@
 
 <script> 
 
-    var btn1 = document.getElementById('btn1');
-    var btn2 = document.getElementById('btn2');
+    var btns= document.getElementsByTagName('button');
+
     var dataTool = document.createElement('div');
     dataTool.className = 'tooltip';
 
-    btn1.onmouseover = function () {
-        document.body.appendChild(dataTool);
-        dataTool.style.top = btn1.getBoundingClientRect().top - dataTool.offsetHeight + 'px';
-        dataTool.innerHTML = btn1.getAttribute('data-tooltip');
-        dataTool.style.left = btn1.getBoundingClientRect().left + 'px';
-    };
+    function mouseOver (e) {
+        if (e.target.getAttribute('data-tooltip')) {
+            document.body.appendChild(dataTool);
+            dataTool.style.top = e.target.getBoundingClientRect().top - dataTool.offsetHeight + 'px';
+            dataTool.innerHTML = e.target.getAttribute('data-tooltip');
+            dataTool.style.left = e.target.getBoundingClientRect().left + 'px';
+        }
+    }
 
-    btn2.onmouseover = function () {
-        document.body.appendChild(dataTool);
-        dataTool.style.top = btn2.getBoundingClientRect().top - dataTool.offsetHeight + 'px';
-        dataTool.style.left = btn2.getBoundingClientRect().left + 'px';
-        dataTool.innerHTML = btn2.getAttribute('data-tooltip');
-    };
-
-    console.dir(dataTool.offsetHeight);
+    for (i = 0; i < btns.length; i++){
+        btns[i].addEventListener('mouseover', mouseOver)
+    }
 
     btn1.onmouseout = function (){
         dataTool.remove();
