@@ -24,13 +24,28 @@
                         }
                     }
                 };
-
                 call1.send();
                 call2.send();
+
+                call1.timeout = 20000;
+                call2.timeout = 20000;
+                
+                call1.ontimeout = function () {
+                    alert('Час запиту вийшов!');
+                };
+
+                call2.ontimeout = function () {
+                    alert('Час запиту вийшов!');
+                }
             }
         }
     </script>
-</head>
+    </head>
+
+<!--Модифицируйте код предыдущего задания так, чтобы максимальное время обработки запроса не превышало 20 секунд -->
+<!--и при первышении этого времени запрос был отменен, -->
+<!--а пользователь видел на экране сообщение об ошибке.-->
+
 <body>
 <input id="get" type="button" value="Get pages" />
 <div id="output"></div>
