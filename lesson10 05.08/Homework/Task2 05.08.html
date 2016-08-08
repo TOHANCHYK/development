@@ -31,10 +31,12 @@
                 call2.timeout = 20000;
                 
                 call1.ontimeout = function () {
+                    call1.abort();
                     alert('Час запиту вийшов!');
                 };
 
                 call2.ontimeout = function () {
+                    call2.abort();
                     alert('Час запиту вийшов!');
                 }
             }
