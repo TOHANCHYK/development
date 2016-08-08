@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+
+</head>
+<body>
+<input id="input" type="text" /><br><br>
+<button id="btn">OK!</button><br>
+<div id="output"></div>
+<script>
+
+    window.onload = function () {
+        var div = document.getElementById('output');
+        var btn = document.getElementById('btn');
+        var data = document.getElementById('input');
+        btn.onclick = function () {
+            div.innerHTML += data.value + '<br>';
+            data.value = '';
+        }
+ }
+
+
+</script>
+
+</body>
+</html>
