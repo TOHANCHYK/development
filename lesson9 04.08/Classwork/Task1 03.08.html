@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+</head>
+<!--Создайте страницу. Реализуйте следующее:-->
+
+<!--При нажатии комбинации клавиш ctrl + a (регистр не учитывается!) на экран выводится сообщение ‘Данные выбраны’;-->
+<!--При нажатии комбинации клавиш ctrl + s (регистр не учитывается!) на экран выводится сообщение ‘Данные сохранены’;-->
+<body id="one">
+
+<script>
+    window.onload = function() {
+        var bod = document.getElementById('one');
+        bod.onkeydown = function (e) {
+            (function () {
+                if (e.ctrlKey && e.keyCode == 65) {
+                    alert('Данні вибрані!');
+                }
+            })();
+            (function () {
+                if (e.ctrlKey && e.keyCode == 83) {
+                    alert('Дані збережені!');
+                }
+            })();
+        }
+    }
+
+</script>
+
+</body>
+</html>
