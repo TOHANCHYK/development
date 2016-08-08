@@ -17,7 +17,6 @@
                 call1.onreadystatechange =  function () {
                     if (call1.readyState == 4) {
                         if (call1.status == 200) {
-                            data.innerHTML += call1.responseText + '<br>';
                             data.setAttribute('src', 'task_phone/img.jpg');
                         }
                     }
