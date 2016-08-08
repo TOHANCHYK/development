@@ -8,25 +8,20 @@
 <body>
 <script>
 
-    function type(data) {                                      // 1 option
-        if (arguments.length = 1){
-            alert(typeof data);
-        } else {
-            alert(arguments[1]);
-        }
+    var arg;
+    function type(data) {
+        alert(typeof data);
+        arg = [].slice.call(arguments);
+    }
+    try {
+        type(true, 3);
+        if (arg.length > 1)
+            throw new Error(e)
+    }
+    catch (e) {
+        alert('Багато параметрів!');
     }
 
-    type('a'); //string
-    type(1, 'web', [1,2], true); //number
-
-//    function type(data) {                                    // 2 option
-//        var toStrig = {}.toString;
-//                for (i = 0; i < 1; i++) {
-//            alert(toStrig.call(arguments[i]));
-//        }
-//    }
-//    type('a'); //[obkect String]
-//    type(1, 'web', [1,2], true); //[object Number]
 
 </script>
 
