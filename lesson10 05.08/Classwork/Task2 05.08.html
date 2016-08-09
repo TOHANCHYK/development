@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>My  work</title>
+
+    <script>
+        window.onload = function () {
+
+            var data = document.getElementById("output");
+
+                var call1 = new XMLHttpRequest();
+                call1.open("POST", "task_phone/phones.json", true);
+
+                call1.onreadystatechange =  function () {
+                    if (call1.readyState == 4) {
+                        if (call1.status == 200) {
+                            var result = JSON.parse(call1.responseText);
+                            var showName = function (result) {
+                                result.forEach(function (names) {
+                                    var li = data.appendChild(document.createElement('li'));
+                                    li.innerHTML = names.name;
+                                })
+                            };
+                            showName(result);
+                        }
+                    }
+                };
+                call1.send();
+
+        }
+    </script>
+</head>
+
+<!--Создайте код, который загрузит файл phones.json и выведет все названия телефонов из него в виде списка. -->
+<!--(файлы для задачи находятся в папке task_phone);-->
+
+<body>
+
+<ul id="output"></ul>
+
+</body>
+</html>
