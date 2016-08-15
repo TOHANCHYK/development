@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="helloWorldApp">
+<head>
+    <meta charset="utf-8">
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <title>My  work</title>
+
+    <script>
+
+        var model = "";
+        var helloWorldApp = angular.module('helloWorldApp',[]);
+        helloWorldApp.controller("WriteCtrl", function ($scope) {
+            $scope.massage = model;
+
+            $scope.getData = function () {
+         $scope.massage = "";
+        $scope.massage += $scope.text;
+            }
+        });
+
+
+    </script>
+
+</head>
+
+<!--Модифицируйте код предыдущей задачи таким образом,
+чтобы содержимое поля ввода выводилось на страницу сразу(без нажатия на кнопку)-->
+
+<body ng-controller="WriteCtrl">
+<br>
+<input ng-model="text" ng-keypress="getData()" value="m"/>
+<h1>{{massage}}</h1>
+</body>
+</html>
