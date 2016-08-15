@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="helloWorldApp">
+<head>
+    <meta charset="utf-8">
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <title>My  work</title>
+
+    <script>
+
+        var model = "Hello World!";
+        var helloWorldApp = angular.module('helloWorldApp',[]);
+        helloWorldApp.controller("WriteCtrl", function ($scope) {
+            $scope.massage = model;
+
+            $scope.getData = function () {
+        $scope.massage = $scope.text;
+            }
+        });
+
+
+    </script>
+
+</head>
+
+<!--Создайте страницу с полем ввода и кнопкой.
+При нажатии на кнопку содержимое поля ввода должно отображаться на странице.-->
+
+<body ng-controller="WriteCtrl">
+<h1>{{massage}}</h1>
+<input ng-model="text"/>
+
+<button ng-click="getData()">OK</button>
+
+</body>
+</html>
