@@ -9,13 +9,13 @@
 
     <script>
 
-        var model = "";
         var helloWorldApp = angular.module('helloWorldApp',[]);
         helloWorldApp.controller("WriteCtrl", function ($scope) {
-            $scope.massage = model;
+
 
             $scope.getData = function () {
-         $scope.massage = "";
+         $scope.massage = '';
+                if ($scope.text !== undefined)
         $scope.massage += $scope.text;
             }
         });
@@ -30,7 +30,7 @@
 
 <body ng-controller="WriteCtrl">
 <br>
-<input ng-model="text" ng-keypress="getData()" value="m"/>
+<input ng-model="text" ng-keypress="getData()"/>
 <h1>{{massage}}</h1>
 </body>
 </html>
