@@ -24,11 +24,17 @@
                     name: $scope.nameTask,
                     description :$scope.descriptionTask,
                     date: $scope.dateTask,
-                    passed: true
+                    done: $scope.doneTask
                 });
 
                 $scope.nameTask = "";
                 $scope.descriptionTask = "";
+            };
+            $scope.showText = function (done) {
+                return done ? "Done" : "To do";
+            }
+            $scope.setStyle = function (done) {
+                return done ? "color:green" : "color:red; font-weight: bold";
             }
         })
 
@@ -56,8 +62,11 @@
             <td>{{task.name}}</td>
             <td>{{task.description}}</td>
             <td>{{task.date}}</td>
-            <td>{{task.passed}}</td>
-
+            <td>
+                <span style="{{setStyle(task.done)}}">
+                    {{showText(task.done)}}
+                </span>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -66,15 +75,16 @@
         <div class="input-group">
 
             <b>Name</b><br>
-            <input class="form-control" ng-model="nameTask"/><br><br>
+            <input class="form-control" ng-model="nameTask" style="width: 1000px"/><br><br>
             <b>Description</b><br>
             <input class="form-control" ng-model="descriptionTask"/><br><br>
             <b>Due Date</b><br>
-            <input type="date" ng-model="dateTask"/><br><br>
+            <input type="date" ng-model="dateTask" style="width: 1000px"/><br><br>
             <b>Completed</b><br>
-            <td><input type="checkbox" ng-model="tasks.passed" /></td><br><br>
+            <td><input type="checkbox" ng-model="doneTask" /></td><br><br>
 
             <button class="btn btn-default" ng-click="addOne()">Add</button>
+
 
     </div>
     </div>
