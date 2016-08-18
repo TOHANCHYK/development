@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="toDoListApp">
+<head>
+    <title>ToDo List (Task2)</title>
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <script>
+
+        var model = {
+            user: "User1",
+            tasks: []
+        };
+
+        var toDoListApp = angular.module("toDoListApp",[]);
+
+        toDoListApp.controller("ToDoListCtrl", function ($scope) {
+            $scope.data = model;
+
+
+            $scope.addOne = function () {
+
+                $scope.data.tasks.push({
+                    name: $scope.nameTask,
+                    description :$scope.descriptionTask,
+                    date: $scope.dateTask,
+                    done: $scope.doneTask
+                });
+
+                $scope.nameTask = "";
+                $scope.descriptionTask = "";
+            };
+            $scope.showText = function (done) {
+                return done ? "Done" : "To do";
+            }
+            $scope.setStyle = function (done) {
+                return done ? "color:green" : "color:red; font-weight: bold";
+            }
+        })
+
+    </script>
+
+</head>
+<body ng-controller="ToDoListCtrl">
+
+<div class="container">
+    <div class="page-header">
+        <h3>ToDo List</h3>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Completed</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="task in data.tasks">
+            <td>
+                <span ng-hide="editing" ng-click="editing = true">{{task.name}}</span>
+                <form ng-show="editing" ng-submit="editing = false">
+                    <input type="text" ng-model="task.name" placeholder="name" ng-required/>
+                    <br/>
+                    <button class="btn" type="submit">Save for all</button>
+                </form>
+            </td>
+            <td>
+                <span ng-hide="editing" ng-click="editing = true">{{task.description}}</span>
+                <form ng-show="editing" ng-submit="editing = false">
+                    <input type="text" ng-model="task.description" placeholder="description" ng-required/>
+                    <br/>
+                    <button class="btn" type="submit">Save for all</button>
+                </form></td>
+            <td>
+                <span ng-hide="editing" ng-click="editing = true">{{task.date.getDate().toString() + "/" + (task.date.getMonth() + 1).toString() + "/" + task.date.getFullYear().toString()}}</span>
+                <form ng-show="editing" ng-submit="editing = false">
+                    <input type="date" ng-model="task.date" placeholder="date" ng-required/>
+                    <br/>
+                    <button class="btn" type="submit">Save for all</button>
+                </form>
+            </td>
+            <td>
+                <input type="checkbox" ng-model="task.done" />
+                <span style="{{setStyle(task.done)}}">
+                    {{showText(task.done)}}
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="panel">
+        <b>Name</b><br>
+        <input class="form-control" ng-model="nameTask"/><br><br>
+        <b>Description</b><br>
+        <textarea rows="4" cols="100%" ng-model="descriptionTask"></textarea><br><br>
+        <b>Due Date</b><br>
+        <input type="date" ng-model="dateTask"/><br><br>
+        <b>Completed</b><br>
+        <td><input type="checkbox" ng-model="doneTask" /></td><br><br>
+
+        <button class="btn btn-default" ng-click="addOne()">Add</button>
+    </div>
+</div>
+</body>
+</html>
