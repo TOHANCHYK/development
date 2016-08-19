@@ -61,7 +61,7 @@
         <tr ng-repeat="task in data.tasks">
             <td>{{task.name}}</td>
             <td>{{task.description}}</td>
-            <td>{{task.date}}</td>
+            <td>{{task.date.getDate().toString() + "/" + (task.date.getMonth() + 1).toString() + "/" + task.date.getFullYear().toString()}}</td>
             <td>
                 <span style="{{setStyle(task.done)}}">
                     {{showText(task.done)}}
