@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="calculateApp">
+<head>
+    <title>ToDo List (Task2)</title>
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <script>
+
+        angular.module("calculateApp",[])
+
+        .controller("CalculateCtrl", function ($scope) {
+            $scope.output = '';
+
+            $scope.add = function (a) {
+                $scope.output = $scope.firstVal + $scope.secondVal;
+            };
+            $scope.minus = function (a) {
+                $scope.output = $scope.firstVal - $scope.secondVal;
+            };
+            $scope.multiply = function (a) {
+                $scope.output = $scope.firstVal * $scope.secondVal;
+            };
+            $scope.divide = function (a) {
+                $scope.output = $scope.firstVal / $scope.secondVal;
+            };
+        })
+
+    </script>
+
+</head>
+
+<!--Создайте приложение-калькулятор. В приложении должно быть два поля ввода и кнопки «+», «-», «*», «/».-->
+<!--Реализуйте двунаправленную привязку таким образом, чтобы при нажатии на кнопки результат арифметических операций выводился на странице.-->
+
+<body ng-controller="CalculateCtrl">
+
+    <div class="panel">
+        <div class="input-group well">
+
+            <b>Value 1</b><br>
+            <input type="number" ng-model="firstVal"/><br><br>
+            <b>Value 2</b><br>
+            <input type="number"   ng-model="secondVal"/><br><br>
+
+            <button class="btn btn-default"  ng-click="add()">+</button>
+            <button class="btn btn-default" ng-click="minus()">-</button>
+            <button class="btn btn-default" ng-click="multiply()">*</button>
+            <button class="btn btn-default" ng-click="divide()">/</button>
+            <h1>{{output}}</h1>
+        </div>
+    </div>
+</div>
+</body>
+</html>
