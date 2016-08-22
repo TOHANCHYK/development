@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="styleApp">
+<head>
+    <title>My work</title>
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+
+    <style>
+        body{
+            background: khaki;
+        }
+        .green{
+            font-size: 24px;
+            background: #95f027;
+        }
+        .red{
+
+            border: dashed 5px black;
+            background: #ff6534;
+        }
+        .yellow{
+            font-weight: 900;
+            background: #f0f01c;
+        }
+
+    </style>
+
+    <script>
+
+        angular.module("styleApp",[])
+
+        .controller("MainCtrl", function ($scope) {
+            $scope.doc = {
+                red: false,
+                green: false,
+                yellow: false
+            }
+
+        })
+
+    </script>
+
+</head>
+
+<!--Создайте три разных CSS класса, которые по-разному будут оформлять блок текста на странице. -->
+<!--Реализуйте возможность выбирать стиль для оформления страницы с помощью кнопок или checkbox-->
+
+<body ng-controller="MainCtrl">
+Colors of the body:<br/><br/>
+    <input type="checkbox" ng-model="doc.green"/>Green <br />
+    <input type="checkbox" ng-model="doc.yellow"/>Yellow<br />
+    <input type="checkbox" ng-model="doc.red"/>Red<br />
+<br/><br/>
+
+<span ng-class="doc">Ignite Software</span>
+</body>
+</html>
