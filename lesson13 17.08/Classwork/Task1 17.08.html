@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <title>My  work</title>
+
+    <style>
+        .size {
+            width: 100px;
+            height: 100px;
+        }
+        .color {
+            background: fuchsia;
+        }
+    </style>
+
+    <script>
+
+        angular.module('myApp',[])
+        .controller("MainCtrl", function ($scope) {
+
+            $scope.setClass = function () {
+                $scope.elem = {
+                    size:true,
+                    color: true
+                }
+            }
+        });
+    </script>
+
+</head>
+
+<!--Создайте страницу с элементом div и кнопкой. Реализуйте следующее:
+При нажатии на кнопку элементу div присваиваются 2 CSS-класса -->
+
+<body ng-controller="MainCtrl" ng-cloak>
+<div ng-class="elem"></div>
+<button ng-click="setClass()">Add</button>
+</body>
+</html>
