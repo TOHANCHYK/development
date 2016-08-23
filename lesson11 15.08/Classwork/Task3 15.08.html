@@ -11,15 +11,6 @@
 
         var helloWorldApp = angular.module('helloWorldApp',[]);
         helloWorldApp.controller("WriteCtrl", function ($scope) {
-
-            console.log($scope.text);
-
-            $scope.getData = function () {
-                console.log($scope.text);
-         $scope.massage = '';
-                if ($scope.text !== undefined)
-        $scope.massage += $scope.text;
-            }
         });
 
 
@@ -33,6 +24,6 @@
 <body ng-controller="WriteCtrl">
 <br>
 <input ng-model="text" ng-keyup="getData()"/>
-<h1>{{massage}}</h1>
+<h1>{{text}}</h1>
 </body>
 </html>
