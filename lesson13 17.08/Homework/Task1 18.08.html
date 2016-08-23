@@ -1,40 +1,26 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="styleApp">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
     <title>My work</title>
     <script src="../Libraries/angular.js"></script>
     <link href="../Libraries/bootstrap.css" rel="stylesheet" />
     <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
 
-    <style>
-        body{
-            background: khaki;
-        }
-        .green{
-            font-size: 24px;
-            background: #95f027;
-        }
-        .red{
-
-            border: dashed 5px black;
-            background: #ff6534;
-        }
-        .yellow{
-            font-weight: 900;
-            background: #f0f01c;
-        }
-
-    </style>
-
     <script>
 
-        angular.module("styleApp",[])
+        angular.module("myApp",[])
 
         .controller("MainCtrl", function ($scope) {
             $scope.doc = {
                 red: false,
                 green: false,
                 yellow: false
+            };
+            var finding = $scope.research;
+            $scope.filterFunc = function (item) {
+                if (item.category == $scope.searchValue) {
+                    return item;
+                }
             }
 
         })
@@ -43,16 +29,25 @@
 
 </head>
 
-<!--Создайте три разных CSS класса, которые по-разному будут оформлять блок текста на странице. -->
-<!--Реализуйте возможность выбирать стиль для оформления страницы с помощью кнопок или checkbox-->
+<!--Создайте страницу с десятью тегами div с текстом, полем ввода и кнопкой. -->
+<!--Добавьте фильтр, который при вводе значения в поле и после нажатия на кнопку, -->
+<!--покажет пользователю только те блоки, текст в которых соответствуют введеному значению. Остальные блоки должны быть скрыты.-->
 
-<body ng-controller="MainCtrl">
-Colors of the span:<br/><br/>
-    <input type="checkbox" ng-model="doc.green"/>Green <br />
-    <input type="checkbox" ng-model="doc.yellow"/>Yellow<br />
-    <input type="checkbox" ng-model="doc.red"/>Red<br />
-<br/><br/>
+<body class="container" ng-controller="MainCtrl">
+    <input ng-model="research"/><br />
+    <button>Find</button>
 
-<span ng-class="doc">Ignite Software</span>
+    <br/><br/>
+
+<div>My name is Martha Glass</div>
+<div>I'm thirty-nine years old and I'm a doctor.</div>
+<div>I chose the medical profession because I wanted to help people and at the same time make good money.</div>
+<div>When I was younger I wanted to become a teacher or a nurse, but I soon realized there wasn't much money in either of those professions.</div>
+<div>My parents almost didn't help me, because they didn't want me to have a career at all.</div>
+<div>They wanted me to do what so many other girls did.</div>
+<div>They wanted me to become a secretary, marry the boss, have kids and stay at home.</div>
+<div>Well, I got married, and I had kids, but I have my career as well.</div>
+<div>Hi. I'm Billy.</div>
+<div> I didn't have any qualification.</div>
 </body>
 </html>
