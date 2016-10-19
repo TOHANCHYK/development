@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>My work</title>
+
+<script>
+
+	function summary (b) {
+		b = 0;
+		return function(a) {
+		return b += a;
+		}
+	}
+
+	var sum = summary();
+	
+	console.log(sum(3)); //3
+	console.log(sum(5)); //8
+	console.log(sum(228)); //236
+	
+</script>
+</head> 
+	
+<body> 
+<!-- html here --> 
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>My work</title>
+
+<script>
+
+	function strCount (obj) {
+		var strAmount = 0;
+		for (key in obj) {
+			if (typeof obj[key] == 'string') {
+				strAmount++;
+			} else if (typeof obj[key] == 'object' && obj[key] !== null) {
+				for (i = 0; i < obj[key].length; i++) {
+					if (typeof obj[key][i] == 'string') {
+						strAmount++;
+					}
+			
+				}
+			}
+		}
+		return strAmount;
+	}
+
+	var a = {
+		first: "1",
+		second: "2",
+		third: false,
+		fourth: ["anytime",2,3,4],
+		fifth:  null
+	};
+	
+	document.write(strCount(a)); //3
+
+</script>
+</head> 
+	
+<body> 
+<!-- html here --> 
+</body>
+</html>

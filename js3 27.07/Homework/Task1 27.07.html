@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My work</title>
+
+</head>
+<body>
+<script>
+
+    function sum(a) {
+
+        var sumGen = a;
+
+        function sumEver(b) {
+            sumGen += b;
+            return sumEver;
+        }
+
+        sumEver.toString = function() {
+            return sumGen;
+        };
+
+        return  sumEver;
+    }
+
+    alert(sum(1)(2) == 3); // true
+    alert(sum(1)(2)(3) == 6); // true
+    alert(sum(5)(-1)(2) == 6); // true
+    alert(sum(6)(-1)(-2)(-3) == 0); // true
+    alert(sum(0)(1)(2)(3)(4)(5) == 15); // true
+
+</script>
+
+</body>
+</html>
